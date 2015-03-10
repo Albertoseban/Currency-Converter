@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Currency converter</title>
+      <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" type="text/css" media="all" />
+      <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+      <script src="js/jquery-1.8.3.min.js"></script>
+      <script src="js/jquery.mobile.config.js"></script>
+      <script src="js/jquery.mobile-1.2.0.min.js"></script>
+
+	  <script>
+	  $(document).ready( function()
+	  {
+	   $("#submit-button").bind("click",function(){
+	   var cad = $("#from-value").val();
+	   if(parseFloat(cad))
+        {
+	   if(cad.length >0)
+	   {
+	     $("#result").val(cad*0.79 + " dollars");
+
+	   }
+	   else
+	   {
+	   $("#result").val("Please enter a valid input first!!");
+
+	   }
+	   }
+	   else
+	   {
+	    $("#result").val("Enter valid amount");
+	   }
+
+
+	   });
+
+
+
+	  $("#reset-button").bind("click",function()
+	  {
+
+	  $("#from-value").val("");
+	  $("#result").val("");
+	  }
+	  );
+
+	  }
+	  );
+	  </script>
+   </head>
+   <body>
+      <div id="home-page" >
+         <header>
+            <h1>Currency converter</h1>
+         </header>
+         <div>
+            <p id="app-description">
+               Currency Converter is a simple app that helps you convert currency from CAD to USD
+            </p>
+
+               <h2 id="convert-title">Convert</h2>
+               <div>
+                  <label for="from-value" id="from-value-label">Please Enter CAD currency Value:</label>
+                  <input type="number" id="from-value" name="from-value" pattern="[0-9]*" value="0" min="0" max="999999999999999" />
+               </div>
+               <div>
+                  <label for="from-type" id="from-type-label">Convert it USD</label>
+
+               </div>
+
+
+               <h2 id="result-title">Result</h2>
+               <output id="result" name="result" for="from-value from-type to-type">0</output>
+
+               <div class="ui-grid-a">
+                  <div class="ui-block-a">
+                     <input id="reset-button" type="reset" value="Reset" />
+                  </div>
+                  <div class="ui-block-b">
+                     <input id="submit-button" type="submit" value="Convert USD" />
+                  </div>
+               </div>
+         </div>
+         <footer >
+           <h3> currency converter</h3>
+         </footer>
+      </div>
+   </body>
+</html>
